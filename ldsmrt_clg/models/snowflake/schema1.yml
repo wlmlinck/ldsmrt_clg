@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: ldsmrt_clg
+    description: 'Loadsmart Challenge Database.'
+    database: LDSMRTCLG
+    schema: PUBLIC
+    tables:
+      - name: RAW
+        description: 'Raw data from csv file.'
+      
