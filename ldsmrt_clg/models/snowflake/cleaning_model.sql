@@ -51,7 +51,7 @@ second_cleaning_removal
 -- Here they are: carrier_rating, sourcing_channel.
 -- Also, some booleans at the end of the table are all false, so these informations are not relevant in the clean view.
 -- Here they are: has_mobile_app_tracking, has_macropoint_tracking, has_edi_tracking, contracted_load, 
--- load_booked_autonomously, load_sourced_autonomously, load_was_cancelled. 
+-- load_booked_autonomously, load_sourced_autonomously. 
 
 as (
     select  id,
@@ -74,7 +74,8 @@ as (
             carrier_on_time_to_delivery,
             carrier_on_time_overall,
             pickup_appointment_time,
-            delivery_appointment_time
+            delivery_appointment_time,
+            load_was_cancelled
 
 from first_cleaning_timestamp
 
@@ -116,7 +117,8 @@ as (
             carrier_on_time_to_delivery,
             carrier_on_time_overall,
             pickup_appointment_time,
-            delivery_appointment_time
+            delivery_appointment_time,
+            load_was_cancelled
 
 
 from second_cleaning_removal

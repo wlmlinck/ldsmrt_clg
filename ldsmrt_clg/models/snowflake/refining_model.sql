@@ -27,8 +27,12 @@ as (
                         when carrier_on_time_overall = true 
                         then 'Yes'
                         else 'No'
-                    end  as carrier_on_time_overall_yes_no
-
+                    end  as carrier_on_time_overall_yes_no,
+                        case 
+                            when load_was_cancelled = true 
+                            then 'Yes'
+                            else 'No'
+                        end  as load_was_cancelled_yes_no
     from final_cleaning
 ),
 
