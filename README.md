@@ -50,3 +50,38 @@ date-time columns as there were missing the seconds part of it. So, I set it as 
 Python, but dbt(data build tool) is preferred and is a great plus!
 
 This stage was made entirely using DBT and GIT, all executed in a VS Code terminal.
+All the codes used in the integration of dbt and snowflake are in the ldsmrt_clg file.
+
+First of all, dbt is run by models. So, to transform the raw data into a final view, three models were created. They are located in ldsmrt/models/snowflake.
+- Cleaning Model: this model is set to clean data and make the dataframe quicker to run.
+- Refining Model: this model aimed to refine a little a few columns, as taking just the code out of the carrier/shipper field, or creating some metrics.
+- Final Model: this model is the representative of what's going to appear on PowerBI.
+ 
+ After 'dbt run' on VS Code the views were created on Snowflake, as below.
+ ![image](https://user-images.githubusercontent.com/87134636/176785959-624c350b-12ef-4284-9144-5392cb8d5816.png)
+
+3. Provide a visual analysis so you can make a proof of concept of how your data model works, and how we
+can use it, for a self-service data analysis. You can use any data visualization of your preference.
+
+After the 2. was set and done, it was time to create a propper dashboard to analyse the data. For this stage I used PowerBI, as recommended.
+To connect the database with PowerBI Desktop I used the Get Data tool, as below.
+
+![image](https://user-images.githubusercontent.com/87134636/176786457-8cbbc3e9-a043-42d6-aea0-4a9268dba808.png)
+
+I didn't use any PowerQuery editing or measure/dimension creation on PowerBI, as the dataframe was cleaned and refined by dbt modeling.
+With the final version of the database, all it was left to do was to develop the dashboard itself.
+
+It's safe to say that not all the information provided by the database were used on the dashboard. I judged what could be the best visualization with the data I had.
+As I don't take part of the business, I might have missed a few important informations, but overall, the General Dashboard can bring a whole lot of awareness on
+how many loads were done, the most common senders/receivers by US State, Carriers and Shippers information and total revenue. Here's a static print of how it looks:
+
+![image](https://user-images.githubusercontent.com/87134636/176787042-5ca0ac90-05c5-4852-aaf4-f8b2e31b49a9.png)
+
+PS. I took the liberty of using the colors as I find in Loadsmart's Website. It wasn't suppost to be any accurate, just to visualize it as a simulation of the company's routine.
+
+Thanks,
+William.
+
+
+
+
